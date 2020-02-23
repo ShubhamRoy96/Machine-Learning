@@ -7,5 +7,10 @@ View(data)
 encoded_data = data
 
 encoded_data$Country = factor(encoded_data$Country, labels = c(1, 2, 3))
-encoded_data$Purchased = factor(encoded_data$Purchased, levels(unique(encoded_data$Purchased)),labels = c(0,1))
-View(encoded_data)
+encoded_data$Purchased = factor(encoded_data$Purchased, levels = (unique(encoded_data$Purchased)),labels = c(0,1))
+View(encoded_data) 
+
+data("iris")
+iris_DS = iris
+iris_DS$Species = factor(iris_DS$Species, levels = (unique(iris_DS$Species)), labels = c(1, 2, 3))
+View(iris_DS)
