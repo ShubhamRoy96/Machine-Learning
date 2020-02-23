@@ -1,0 +1,38 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+brittleness_index = read.csv("brittleness-index.csv")
+brittleness_index$TK104 = ifelse(is.na(brittleness_index$TK104), ave(brittleness_index$TK104, FUN = function(x) mean(x , na.rm = TRUE)), brittleness_index$TK104)
+brittleness_index$TK105 = ifelse(is.na(brittleness_index$TK105), ave(brittleness_index$TK105, FUN = function(x) mean(x , na.rm = TRUE)), brittleness_index$TK105)
+brittleness_index$TK107 = ifelse(is.na(brittleness_index$TK107), ave(brittleness_index$TK107, FUN = function(x) mean(x , na.rm = TRUE)), brittleness_index$TK107)
+
+View(brittleness_index, 'Brittleness Index')
+```
+```{r}
+class_grades = read.csv('class-grades.csv')
+
+class_grades$Assignment = ifelse(is.na(class_grades$Assignment), ave(class_grades$Assignment, FUN = function(x) mean(x, na.rm = TRUE)), class_grades$Assignment)
+
+class_grades$Tutorial = ifelse(is.na(class_grades$Tutorial), ave(class_grades$Tutorial, FUN = function(x) mean(x, na.rm = TRUE)), class_grades$Tutorial)
+
+class_grades$Midterm = ifelse(is.na(class_grades$Midterm), ave(class_grades$Midterm, FUN = function(x) mean(x, na.rm = TRUE)), class_grades$Midterm)
+
+class_grades$TakeHome = ifelse(is.na(class_grades$TakeHome), ave(class_grades$TakeHome, FUN = function(x) mean(x, na.rm = TRUE)), class_grades$TakeHome)
+
+class_grades$Final = ifelse(is.na(class_grades$Final), ave(class_grades$Final, FUN = function(x) mean(x, na.rm = TRUE)), class_grades$Final)
+
+View(class_grades, 'Class Grades')
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
