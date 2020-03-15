@@ -1,0 +1,1 @@
+startup_data = read.csv('50_Startups.csv')

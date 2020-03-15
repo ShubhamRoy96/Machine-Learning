@@ -1,6 +1,8 @@
 data = read.csv("Advertising.csv")
 ggplot()+
-  geom_point(aes(x = data$TV,y = data$sales,color="red"))
+  geom_point(aes(x = data$TV,y = data$sales),color="red")+
+  geom_point(aes(x = data$radio,y = data$sales),color="black")
+  
 
 split = sample.split(data$sales,SplitRatio = 2/3)
 training_set = subset(data,split == TRUE)
