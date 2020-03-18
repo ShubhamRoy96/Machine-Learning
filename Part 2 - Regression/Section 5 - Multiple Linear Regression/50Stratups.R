@@ -5,5 +5,8 @@ training_Set = subset(x = startup_data, splitset == TRUE)
 test_Set = subset(x = startup_data, splitset == FALSE)
 regressor = lm(formula = Profit ~ .,data = training_Set)
 
+regressor = lm(formula = Profit ~ . - State - Administration - Marketing.Spend, data = training_Set)
+summary(regressor)
+
 
 y_pred = predict(regressor,newdata = test_Set)
