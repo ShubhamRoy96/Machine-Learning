@@ -15,6 +15,9 @@ y_pred = predict(classifier,newdata = test_set[, -3], type = 'class')
 
 cm = table(test_set[, 3], y_pred)
 
+plot(classifier)
+text(classifier)
+
 set = training_set
 X1 = seq(from = min(set[,1]) - 1, to = max(set[, 1]) + 1, by = 0.01)
 X2 = seq(from = min(set[,2]) - 1, to = max(set[, 2]) + 1, by = 0.01)
